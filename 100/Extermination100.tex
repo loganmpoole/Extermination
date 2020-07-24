@@ -1,0 +1,107 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage[x11names]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage[margin=0.4in]{geometry}
+\usepackage{xstring}
+\usepackage{xifthen}
+%\usepackage[x11names]{xcolor}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\pagenumbering{gobble}
+\setlength{\columnsep}{1.5cm}
+\setlength{\columnseprule}{0.2pt}
+\usepackage{latexsym}
+\usepackage{hyperref}
+\usepackage[none]{hyphenat}
+\usepackage{titlepic}
+\usepackage{bm}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\makeatletter
+\def\@makechapterhead#1{{
+    \parindent \z@ \raggedleft \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \huge\bfseries #1
+        \par\nobreak
+        \rule{\columnwidth}{.1pt}
+        \vskip 5mm
+    \fi
+    \interlinepenalty\@M
+}}
+\makeatother
+
+\makeatletter
+    \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+
+
+
+\usepackage{enumitem}
+\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\usepackage{graphicx}
+\title{Extermination 100\%}
+
+\begin{document}
+    \singlespacing
+    \maketitle
+    \tableofcontents
+
+    \section*{Acknowledgements}
+        MrTyton for the latex template (www.github.com/MrTyton).\
+        All the other runners for actually running this game.\
+        Laud, Josha, Retroid, and DemonicRobots.
+
+    \newenvironment{subregion}[1]{\begin{tcolorbox}[title=\begin{center}#1\end{center},colbacktitle=black!75!white]}{\end{tcolorbox}}
+
+    \newenvironment{maps}[1]{\begin{tcolorbox}[title=\begin{center}#1\end{center},colbacktitle=AntiqueWhite4!50!white]}{\end{tcolorbox}}
+    \newenvironment{spr4}[1]{\begin{tcolorbox}[title=\begin{center}#1\end{center},colbacktitle=Aquamarine4!50!white]}{\end{tcolorbox}}
+    \newenvironment{memo}[1]{\begin{tcolorbox}[title=\begin{center}#1\end{center},colbacktitle=Blue4!50!white]}{\end{tcolorbox}}
+    \newenvironment{manual}[1]{\begin{tcolorbox}[title=\begin{center}#1\end{center},colbacktitle=Brown4!50!white]}{\end{tcolorbox}}
+    \newenvironment{stafflog}[1]{\begin{tcolorbox}[title=\begin{center}#1\end{center},colbacktitle=Chocolate2!50!white]}{\end{tcolorbox}}
+    \newenvironment{classified}[1]{\begin{tcolorbox}[title=\begin{center}#1\end{center},colbacktitle=LightSteelBlue4!50!white]}{\end{tcolorbox}}
+    \newenvironment{secret}[1]{\begin{tcolorbox}[title=\begin{center}#1\end{center},colbacktitle=MediumPurple4!50!white]}{\end{tcolorbox}}
+    \newenvironment{eventitems}[1]{\begin{tcolorbox}[title=\begin{center}#1\end{center},colbacktitle=Yellow4!50!white]}{\end{tcolorbox}}
+    \newenvironment{battery}[1]{\begin{tcolorbox}[title=\begin{center}#1\end{center},colbacktitle=Cyan4!50!white]}{\end{tcolorbox}}
+    \newenvironment{equipment}[1]{\begin{tcolorbox}[title=\begin{center}#1\end{center},colbacktitle=Khaki4!50!white]}{\end{tcolorbox}}
+
+    \setlength{\columnsep}{.5cm}
+    \pagebreak
+
+    \begin{multicols}{2}
+        \input{data/guide/FortStewart.tex}
+        \input{data/guide/UndergroundTunnel.tex}
+        \input{data/guide/WaterFiltrationPlant.tex}
+        \input{data/guide/ResearchLabs.tex}
+        \newpage
+        \input{data/guide/PowerReactor.tex}
+        \input{data/guide/MaxSecurityLab.tex}
+        \input{data/guide/LCAC.tex}
+    \end{multicols}
+
+    \newpage
+
+    \chapter{Glossary}
+    \begin{multicols}{1}
+        \input{data/glossary/Maps.tex}
+        \input{data/glossary/SPR4.tex}
+        \input{data/glossary/Memo.tex}
+        \input{data/glossary/Manual.tex}
+        \input{data/glossary/Log.tex}
+        \input{data/glossary/Classified.tex}
+        \input{data/glossary/Secret.tex}
+        \input{data/glossary/Event.tex}
+        \input{data/glossary/Battery.tex}
+        \input{data/glossary/Equipment.tex}
+    \end{multicols}
+
+\end{document}
